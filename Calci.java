@@ -1,6 +1,10 @@
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
 import javax.swing.*;
 public class Calci extends JFrame implements ActionListener
 {
@@ -23,9 +27,12 @@ public class Calci extends JFrame implements ActionListener
         expression.setFont(newFont1);//Setting new Font size to the instance
         expression.setBounds(10, 100, 470, 50);//Alignment setting
         expression.setFocusable(false);
+        
         result=new JTextField();//Creating the instance of JTextField
         result.setBounds(10, 150, 470, 30);//Alignment setting
         result.setHorizontalAlignment(SwingConstants.RIGHT);//Arranging the Cursor on the righthand size of the TextField 
+        result.setFocusable(false);
+        //-------------------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------Button-----------------------------------------------------------------------------------------------
         c=new JButton("C");
         c.setBounds(10, 210, 70, 50);
