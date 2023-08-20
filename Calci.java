@@ -1,4 +1,7 @@
+import java.awt.Color;
 import java.awt.Font;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -6,18 +9,22 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 public class Calci extends JFrame implements ActionListener
 {
-    JButton equal, add, sub, mul, div, percent,one, two, three, four, five, six, seven, eight, nine, zero, zero_zero, c, delete, point;//Creating obj for JButton
+    JButton equal, add, sub, mul, div, percent,one, two, three, four, five, six, seven, eight, nine, zero, zero_zero, c, delete, point, Exit;//Creating obj for JButton
     JTextField Number_1, Number_2,sign, result;//Creating obj for JTextField
     JLabel l1, l2;//Creating obj for JLabel
     float total=0, no=0, no1=0;
     Calci(){
         l1=new JLabel("Calculator");//Creating the instance of JLabel with paramatar
-        l1.setBounds(200,10, 300,50);//Alignment setting
+        l1.setBounds(125,10, 300,50);//Alignment setting
         Font originalfont=l1.getFont();//Getting the size of existing font in JTextField
         Font newFont = originalfont.deriveFont(originalfont.getSize() + 10.0f);//Increasing the font size by 10pixels.
         l1.setFont(newFont);//Setting new Font size to the instance
         l2=new JLabel("Developed By Mohd Tahzeeb Khan");//Creating the instance of the JLabel with the parameter
-        l2.setBounds(165, 50, 250, 20);//Alignment setting
+        l2.setBounds(85, 50, 250, 20);//Alignment setting
+        JSeparator separator = new JSeparator(SwingConstants.HORIZONTAL);
+        separator.setBackground(Color.black);
+        // separator.setPreferredSize(new Dimension(200, 50));
+        separator.setBounds(0, 80, 380, 20);
         Number_1=new JTextField();//Creating the instance of JTextField
         Number_1.setHorizontalAlignment(SwingConstants.RIGHT);//Arranging the Cursor on the righthand size of the TextField
         Font originalfont1=Number_1.getFont();//Getting the size of existing font in JTextField
@@ -41,9 +48,10 @@ public class Calci extends JFrame implements ActionListener
         sign.setFocusable(false);
         
         result=new JTextField();//Creating the instance of JTextField
-        result.setBounds(10, 150, 470, 30);//Alignment setting
+        result.setBounds(10, 150, 350, 50);//Alignment setting
         result.setHorizontalAlignment(SwingConstants.RIGHT);//Arranging the Cursor on the righthand size of the TextField 
         result.setFocusable(false);
+
         //-------------------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------Button-----------------------------------------------------------------------------------------------
         c=new JButton("C");
@@ -122,35 +130,42 @@ public class Calci extends JFrame implements ActionListener
         Font newfontpoint=originalfontpoint.deriveFont(originalfontpoint.getSize()+10.0f);//Increasing the font size by 10pixels.
         point.setFont(newfontpoint);//Setting new Font size to the instance
         add=new JButton("+");
-        add.setBounds(235, 210, 100, 50);
+        add.setBounds(235, 210, 125, 50);
         Font originalfontadd=add.getFont();//Getting the size of existing font in JTextField
         Font newfontadd=originalfontadd.deriveFont(originalfontadd.getSize()+10.0f);//Increasing the font size by 10pixels.
         add.setFont(newfontadd);//Setting new Font size to the instance
         sub=new JButton("-");
-        sub.setBounds(235, 265, 100, 50);
+        sub.setBounds(235, 265, 125, 50);
         Font originalfontsub=sub.getFont();//Getting the size of existing font in JTextField
         Font newfontsub=originalfontsub.deriveFont(originalfontsub.getSize()+10.0f);//Increasing the font size by 10pixels.
         sub.setFont(newfontsub);//Setting new Font size to the instance
         div=new JButton("/");
-        div.setBounds(235, 320, 100, 50);
+        div.setBounds(235, 320, 125, 50);
         Font originalfontdiv=div.getFont();//Getting the size of existing font in JTextField
         Font newfontdiv=originalfontdiv.deriveFont(originalfontdiv.getSize()+10.0f);//Increasing the font size by 10pixels.
         div.setFont(newfontdiv);//Setting new Font size to the instance
         mul=new JButton("X");
-        mul.setBounds(235, 375, 100, 50);
+        mul.setBounds(235, 375, 125, 50);
         Font originalfontmul=mul.getFont();//Getting the size of existing font in JTextField
         Font newfontmul=originalfontmul.deriveFont(originalfontmul.getSize()+10.0f);//Increasing the font size by 10pixels.
         mul.setFont(newfontmul);//Setting new Font size to the instance
         equal=new JButton("=");
-        equal.setBounds(235, 430, 100, 50);
+        equal.setBounds(235, 430, 125, 50);
         Font originalfontequal=equal.getFont();//Getting the size of existing font in JTextField
         Font newfontequal=originalfontequal.deriveFont(originalfontequal.getSize()+10.0f);//Increasing the font size by 10pixels.
         equal.setFont(newfontequal);//Setting new Font size to the instance
+        Exit=new JButton("EXIT");
+        Exit.setBackground(Color.red);
+        Exit.setForeground(Color.white);
+        Exit.setBounds(10, 500, 350, 50);
+        Font originalfontexit=equal.getFont();//Getting the size of existing font in JTextField
+        Font newfontexit=originalfontexit.deriveFont(originalfontexit.getSize()+10.0f);//Increasing the font size by 10pixels.
+        Exit.setFont(newfontexit);//Setting new Font size to the instance
         //------------------------------------------------------------------------------------------------------------------------------------------
         add(l1); add(Number_1); add(Number_2); add(sign); add(result); add(l2); add(c); add(delete);//Adding all the Components on the JFrame........
         add(percent); add(seven); add(eight); add(nine); add(four); add(five);
         add(six); add(one); add(two); add(three); add(zero); add(zero_zero); add(point);
-        add(add); add(mul); add(sub); add(div); add(equal);
+        add(add); add(mul); add(sub); add(div); add(equal); add(Exit);add(separator);
         c.addActionListener(this);
         equal.addActionListener(this);
         add.addActionListener(this);
@@ -172,7 +187,7 @@ public class Calci extends JFrame implements ActionListener
         delete.addActionListener(this);
         point.addActionListener(this);
         setLayout(null);//setting the layout for the Frame
-        setSize(500, 600);//Dimensions for FrameSize
+        setSize(380, 600);//Dimensions for FrameSize
         setVisible(true);//Setting the Visible
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);//Setting the Position of the Frame on the Screen
