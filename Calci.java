@@ -8,12 +8,15 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 public class Calci extends JFrame implements ActionListener
-{
+{   
     JButton equal, add, sub, mul, div, percent,one, two, three, four, five, six, seven, eight, nine, zero, zero_zero, c, delete, point, Exit;//Creating obj for JButton
     JTextField Number_1, Number_2,sign, result;//Creating obj for JTextField
     JLabel l1, l2;//Creating obj for JLabel
     float total=0, no=0, no1=0;
     Calci(){
+        setTitle("Calculator");
+        ImageIcon icon = new ImageIcon("pictures/Logo.png");
+        setIconImage(icon.getImage());
         l1=new JLabel("Calculator");//Creating the instance of JLabel with paramatar
         l1.setBounds(125,10, 300,50);//Alignment setting
         Font originalfont=l1.getFont();//Getting the size of existing font in JTextField
@@ -186,6 +189,7 @@ public class Calci extends JFrame implements ActionListener
         zero_zero.addActionListener(this);
         delete.addActionListener(this);
         point.addActionListener(this);
+        Exit.addActionListener(this);
         setLayout(null);//setting the layout for the Frame
         setSize(380, 600);//Dimensions for FrameSize
         setVisible(true);//Setting the Visible
@@ -196,10 +200,9 @@ public class Calci extends JFrame implements ActionListener
         String Number1 = Number_1.getText();
         String Number2 = Number_2.getText();
         String Result=result.getText();
-        //System.out.println(Expression);
-        
-        
-        int a,b,d,f;
+        if(e.getSource()==Exit){
+            dispose();
+        }
         if(e.getSource()==add){
             sign.setText(" + ");
 
@@ -216,17 +219,22 @@ public class Calci extends JFrame implements ActionListener
             sign.setText("- ");
            
         }
+        if(e.getSource()==percent){
+            sign.setText("%");
+
+        }
         // if(e.getSource()==equal){
         //     String getExpression=expression.getText();
         // }
         if(e.getSource()==one){
             String Sign=sign.getText();
             String ADD=" + ";
-            String subtract=" - ";
-            String DIV=" / ";
+            String subtract="- ";
+            String DIV="/ ";
             String MUL=" x ";
+            String Per="%";
 
-            if(Sign.equals(ADD)|| Sign.equals(MUL)|| Sign.equals(DIV) || Sign.equals(subtract)){
+            if(Sign.equals(ADD)|| Sign.equals(MUL)|| Sign.equals(DIV) || Sign.equals(subtract) ||Sign.equals(Per)){
                 Number_2.setText(Number2+"1");
             }
             else{
@@ -236,11 +244,12 @@ public class Calci extends JFrame implements ActionListener
         if(e.getSource()==two){
             String Sign=sign.getText();
             String ADD=" + ";
-            String subtract=" - ";
-            String DIV=" / ";
+            String subtract="- ";
+            String DIV="/ ";
             String MUL=" x ";
+            String Per="%";
 
-            if(Sign.equals(ADD)|| Sign.equals(MUL)|| Sign.equals(DIV) || Sign.equals(subtract)){
+            if(Sign.equals(ADD)|| Sign.equals(MUL)|| Sign.equals(DIV) || Sign.equals(subtract) ||Sign.equals(Per)){
                 Number_2.setText(Number2+"2");
             }
             else{
@@ -250,11 +259,12 @@ public class Calci extends JFrame implements ActionListener
         if(e.getSource()==three){
          String Sign=sign.getText();
             String ADD=" + ";
-            String subtract=" - ";
-            String DIV=" / ";
+            String subtract="- ";
+            String DIV="/ ";
             String MUL=" x ";
+            String Per="%";
 
-            if(Sign.equals(ADD)|| Sign.equals(MUL)|| Sign.equals(DIV) || Sign.equals(subtract)){
+            if(Sign.equals(ADD)|| Sign.equals(MUL)|| Sign.equals(DIV) || Sign.equals(subtract) ||Sign.equals(Per)){
                 Number_2.setText(Number2+"3");
             }
             else{
@@ -264,11 +274,12 @@ public class Calci extends JFrame implements ActionListener
         if(e.getSource()==four){
             String Sign=sign.getText();
             String ADD=" + ";
-            String subtract=" - ";
-            String DIV=" / ";
+            String subtract="- ";
+            String DIV="/ ";
             String MUL=" x ";
+            String Per="%";
 
-            if(Sign.equals(ADD)|| Sign.equals(MUL)|| Sign.equals(DIV) || Sign.equals(subtract)){
+            if(Sign.equals(ADD)|| Sign.equals(MUL)|| Sign.equals(DIV) || Sign.equals(subtract) ||Sign.equals(Per)){
                 Number_2.setText(Number2+"4");
             }
             else{
@@ -278,11 +289,12 @@ public class Calci extends JFrame implements ActionListener
         if(e.getSource()==five){
              String Sign=sign.getText();
             String ADD=" + ";
-            String subtract=" - ";
-            String DIV=" / ";
+            String subtract="- ";
+            String DIV="/ ";
             String MUL=" x ";
+            String Per="%";
 
-            if(Sign.equals(ADD)|| Sign.equals(MUL)|| Sign.equals(DIV) || Sign.equals(subtract)){
+            if(Sign.equals(ADD)|| Sign.equals(MUL)|| Sign.equals(DIV) || Sign.equals(subtract) ||Sign.equals(Per)){
                 Number_2.setText(Number2+"5");
             }
             else{
@@ -292,11 +304,12 @@ public class Calci extends JFrame implements ActionListener
         if(e.getSource()==six){
              String Sign=sign.getText();
             String ADD=" + ";
-            String subtract=" - ";
-            String DIV=" / ";
+            String subtract="- ";
+            String DIV="/ ";
+            String Per="%";
             String MUL=" x ";
 
-            if(Sign.equals(ADD)|| Sign.equals(MUL)|| Sign.equals(DIV) || Sign.equals(subtract)){
+            if(Sign.equals(ADD)|| Sign.equals(MUL)|| Sign.equals(DIV) || Sign.equals(subtract) ||Sign.equals(Per)){
                 Number_2.setText(Number2+"6");
             }
             else{
@@ -306,11 +319,12 @@ public class Calci extends JFrame implements ActionListener
         if(e.getSource()==seven){
              String Sign=sign.getText();
             String ADD=" + ";
-            String subtract=" - ";
-            String DIV=" / ";
+            String subtract="- ";
+            String DIV="/ ";
+            String Per="%";
             String MUL=" x ";
 
-            if(Sign.equals(ADD)|| Sign.equals(MUL)|| Sign.equals(DIV) || Sign.equals(subtract)){
+            if(Sign.equals(ADD)|| Sign.equals(MUL)|| Sign.equals(DIV) || Sign.equals(subtract)||Sign.equals(Per)){
                 Number_2.setText(Number2+"7");
             }
             else{
@@ -320,11 +334,12 @@ public class Calci extends JFrame implements ActionListener
         if(e.getSource()==eight){
              String Sign=sign.getText();
             String ADD=" + ";
-            String subtract=" - ";
-            String DIV=" / ";
+            String subtract="- ";
+            String DIV="/ ";
             String MUL=" x ";
+            String Per="%";
 
-            if(Sign.equals(ADD)|| Sign.equals(MUL)|| Sign.equals(DIV) || Sign.equals(subtract)){
+            if(Sign.equals(ADD)|| Sign.equals(MUL)|| Sign.equals(DIV) || Sign.equals(subtract) ||Sign.equals(Per)){
                 Number_2.setText(Number2+"8");
             }
             else{
@@ -334,11 +349,12 @@ public class Calci extends JFrame implements ActionListener
         if(e.getSource()==nine){
             String Sign=sign.getText();
             String ADD=" + ";
-            String subtract=" - ";
-            String DIV=" / ";
+            String subtract="- ";
+            String DIV="/ ";
             String MUL=" x ";
+            String Per="%";
 
-            if(Sign.equals(ADD)|| Sign.equals(MUL)|| Sign.equals(DIV) || Sign.equals(subtract)){
+            if(Sign.equals(ADD)|| Sign.equals(MUL)|| Sign.equals(DIV) || Sign.equals(subtract) ||Sign.equals(Per)){
                 Number_2.setText(Number2+"9");
             }
             else{
@@ -348,11 +364,11 @@ public class Calci extends JFrame implements ActionListener
         if(e.getSource()==zero){
             String Sign=sign.getText();
             String ADD=" + ";
-            String subtract=" - ";
-            String DIV=" / ";
+            String subtract="- ";
+            String DIV="/ ";
             String MUL=" x ";
-
-            if(Sign.equals(ADD)|| Sign.equals(MUL)|| Sign.equals(DIV) || Sign.equals(subtract)){
+            String Per="%";
+            if(Sign.equals(ADD)|| Sign.equals(MUL)|| Sign.equals(DIV) || Sign.equals(subtract) ||Sign.equals(Per)){
                 Number_2.setText(Number2+"0");
             }
             else{
@@ -362,11 +378,12 @@ public class Calci extends JFrame implements ActionListener
         if(e.getSource()==zero_zero){
             String Sign=sign.getText();
             String ADD=" + ";
-            String subtract=" - ";
-            String DIV=" / ";
+            String subtract="- ";
+            String DIV="/ ";
             String MUL=" x ";
+            String Per="%";
 
-            if(Sign.equals(ADD)|| Sign.equals(MUL)|| Sign.equals(DIV) || Sign.equals(subtract)){
+            if(Sign.equals(ADD)|| Sign.equals(MUL)|| Sign.equals(DIV) || Sign.equals(subtract)||Sign.equals(Per)){
                 Number_2.setText(Number2+"00");
             }
             else{
@@ -376,11 +393,12 @@ public class Calci extends JFrame implements ActionListener
         if(e.getSource()==point){
             String Sign=sign.getText();
             String ADD=" + ";
-            String subtract=" - ";
-            String DIV=" / ";
+            String subtract="- ";
+            String DIV="/ ";
             String MUL=" x ";
+            String Per="%";
 
-            if(Sign.equals(ADD)|| Sign.equals(MUL)|| Sign.equals(DIV) || Sign.equals(subtract)){
+            if(Sign.equals(ADD)|| Sign.equals(MUL)|| Sign.equals(DIV) || Sign.equals(subtract) ||Sign.equals(Per)){
                 Number_2.setText(Number2+".");
             }
             else{
@@ -393,6 +411,7 @@ public class Calci extends JFrame implements ActionListener
         if(e.getSource()==c){
             Number_1.setText("");
             Number_2.setText("");
+            sign.setText("");
         }
         
         
