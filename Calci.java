@@ -1,17 +1,15 @@
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+
 
 import javax.swing.*;
 public class Calci extends JFrame implements ActionListener
 {
     JButton equal, add, sub, mul, div, percent,one, two, three, four, five, six, seven, eight, nine, zero, zero_zero, c, delete, point;//Creating obj for JButton
-    JTextField expression, result;//Creating obj for JTextField
+    JTextField Number_1, Number_2,sign, result;//Creating obj for JTextField
     JLabel l1, l2;//Creating obj for JLabel
-    float total=0;
+    float total=0, no=0, no1=0;
     Calci(){
         l1=new JLabel("Calculator");//Creating the instance of JLabel with paramatar
         l1.setBounds(200,10, 300,50);//Alignment setting
@@ -20,13 +18,27 @@ public class Calci extends JFrame implements ActionListener
         l1.setFont(newFont);//Setting new Font size to the instance
         l2=new JLabel("Developed By Mohd Tahzeeb Khan");//Creating the instance of the JLabel with the parameter
         l2.setBounds(165, 50, 250, 20);//Alignment setting
-        expression=new JTextField();//Creating the instance of JTextField
-        expression.setHorizontalAlignment(SwingConstants.RIGHT);//Arranging the Cursor on the righthand size of the TextField
-        Font originalfont1=expression.getFont();//Getting the size of existing font in JTextField
+        Number_1=new JTextField();//Creating the instance of JTextField
+        Number_1.setHorizontalAlignment(SwingConstants.RIGHT);//Arranging the Cursor on the righthand size of the TextField
+        Font originalfont1=Number_1.getFont();//Getting the size of existing font in JTextField
         Font newFont1=originalfont1.deriveFont(originalfont1.getSize()+15.0f);//Increasing the font size by 10pixels.
-        expression.setFont(newFont1);//Setting new Font size to the instance
-        expression.setBounds(10, 100, 470, 50);//Alignment setting
-        expression.setFocusable(false);
+        Number_1.setFont(newFont1);//Setting new Font size to the instance
+        Number_1.setBounds(10, 100, 150, 50);//Alignment setting
+        Number_1.setFocusable(false);
+        Number_2=new JTextField();//Creating the instance of JTextField
+        Number_2.setHorizontalAlignment(SwingConstants.RIGHT);//Arranging the Cursor on the righthand size of the TextField
+        Font originalfont2=Number_2.getFont();//Getting the size of existing font in JTextField
+        Font newFont2=originalfont2.deriveFont(originalfont2.getSize()+15.0f);//Increasing the font size by 10pixels.
+        Number_2.setFont(newFont2);//Setting new Font size to the instance
+        Number_2.setBounds(210, 100, 150, 50);//Alignment setting
+        Number_2.setFocusable(true);
+        sign=new JTextField();//Creating the instance of JTextField
+        sign.setHorizontalAlignment(SwingConstants.RIGHT);//Arranging the Cursor on the righthand size of the TextField
+        Font originalFont3=sign.getFont();//Getting the size of existing font in JTextField
+        Font newFont3=originalFont3.deriveFont(originalFont3.getSize()+15.0f);//Increasing the font size by 10pixels.
+        sign.setFont(newFont3);//Setting new Font size to the instance
+        sign.setBounds(170, 100, 30, 50);//Alignment setting
+        sign.setFocusable(false);
         
         result=new JTextField();//Creating the instance of JTextField
         result.setBounds(10, 150, 470, 30);//Alignment setting
@@ -135,7 +147,7 @@ public class Calci extends JFrame implements ActionListener
         Font newfontequal=originalfontequal.deriveFont(originalfontequal.getSize()+10.0f);//Increasing the font size by 10pixels.
         equal.setFont(newfontequal);//Setting new Font size to the instance
         //------------------------------------------------------------------------------------------------------------------------------------------
-        add(l1); add(expression); add(result); add(l2); add(c); add(delete);//Adding all the Components on the JFrame........
+        add(l1); add(Number_1); add(Number_2); add(sign); add(result); add(l2); add(c); add(delete);//Adding all the Components on the JFrame........
         add(percent); add(seven); add(eight); add(nine); add(four); add(five);
         add(six); add(one); add(two); add(three); add(zero); add(zero_zero); add(point);
         add(add); add(mul); add(sub); add(div); add(equal);
@@ -166,71 +178,208 @@ public class Calci extends JFrame implements ActionListener
         setLocationRelativeTo(null);//Setting the Position of the Frame on the Screen
     }
     public void actionPerformed(ActionEvent e){
-        String Expression = expression.getText();
-        float no=0;
+        String Number1 = Number_1.getText();
+        String Number2 = Number_2.getText();
+        String Result=result.getText();
+        //System.out.println(Expression);
         
-        int a,b,d,f,g,h,i;
+        
+        int a,b,d,f;
         if(e.getSource()==add){
-            expression.setText(Expression+"+");
-            Expression=expression.getText();
-            a=Expression.indexOf('+');
-            String Alter=Expression.substring(0, a);
-            no=Float.parseFloat(Alter);
-            total=total+no;
-            String totalString=Float.toString(total);
-            result.setText(totalString);
+            sign.setText(" + ");
+
         }
         if(e.getSource()==mul){
-            expression.setText(Expression+"x");
+            sign.setText(" x ");
+            
         }
         if(e.getSource()==div){
-            expression.setText(Expression+"/");
+            sign.setText("/ ");
+            
         }
         if(e.getSource()==sub){
-            expression.setText(Expression+"-");
+            sign.setText("- ");
+           
         }
+        // if(e.getSource()==equal){
+        //     String getExpression=expression.getText();
+        // }
         if(e.getSource()==one){
-            expression.setText(Expression+"1");
+            String Sign=sign.getText();
+            String ADD=" + ";
+            String subtract=" - ";
+            String DIV=" / ";
+            String MUL=" x ";
+
+            if(Sign.equals(ADD)|| Sign.equals(MUL)|| Sign.equals(DIV) || Sign.equals(subtract)){
+                Number_2.setText(Number2+"1");
+            }
+            else{
+                Number_1.setText(Number1+"1");
+            }
         }
         if(e.getSource()==two){
-            expression.setText(Expression+"2");
+            String Sign=sign.getText();
+            String ADD=" + ";
+            String subtract=" - ";
+            String DIV=" / ";
+            String MUL=" x ";
+
+            if(Sign.equals(ADD)|| Sign.equals(MUL)|| Sign.equals(DIV) || Sign.equals(subtract)){
+                Number_2.setText(Number2+"2");
+            }
+            else{
+                Number_1.setText(Number1+"2");
+            }
         }
         if(e.getSource()==three){
-            expression.setText(Expression+"3");
+         String Sign=sign.getText();
+            String ADD=" + ";
+            String subtract=" - ";
+            String DIV=" / ";
+            String MUL=" x ";
+
+            if(Sign.equals(ADD)|| Sign.equals(MUL)|| Sign.equals(DIV) || Sign.equals(subtract)){
+                Number_2.setText(Number2+"3");
+            }
+            else{
+                Number_1.setText(Number1+"3");
+            }
         }
         if(e.getSource()==four){
-            expression.setText(Expression+"4");
+            String Sign=sign.getText();
+            String ADD=" + ";
+            String subtract=" - ";
+            String DIV=" / ";
+            String MUL=" x ";
+
+            if(Sign.equals(ADD)|| Sign.equals(MUL)|| Sign.equals(DIV) || Sign.equals(subtract)){
+                Number_2.setText(Number2+"4");
+            }
+            else{
+                Number_1.setText(Number1+"4");
+            }
         }
         if(e.getSource()==five){
-            expression.setText(Expression+"5");
+             String Sign=sign.getText();
+            String ADD=" + ";
+            String subtract=" - ";
+            String DIV=" / ";
+            String MUL=" x ";
+
+            if(Sign.equals(ADD)|| Sign.equals(MUL)|| Sign.equals(DIV) || Sign.equals(subtract)){
+                Number_2.setText(Number2+"5");
+            }
+            else{
+                Number_1.setText(Number1+"5");
+            }
         }
         if(e.getSource()==six){
-            expression.setText(Expression+"6");
+             String Sign=sign.getText();
+            String ADD=" + ";
+            String subtract=" - ";
+            String DIV=" / ";
+            String MUL=" x ";
+
+            if(Sign.equals(ADD)|| Sign.equals(MUL)|| Sign.equals(DIV) || Sign.equals(subtract)){
+                Number_2.setText(Number2+"6");
+            }
+            else{
+                Number_1.setText(Number1+"6");
+            }
         }
         if(e.getSource()==seven){
-            expression.setText(Expression+"7");
+             String Sign=sign.getText();
+            String ADD=" + ";
+            String subtract=" - ";
+            String DIV=" / ";
+            String MUL=" x ";
+
+            if(Sign.equals(ADD)|| Sign.equals(MUL)|| Sign.equals(DIV) || Sign.equals(subtract)){
+                Number_2.setText(Number2+"7");
+            }
+            else{
+                Number_1.setText(Number1+"7");
+            }
         }
         if(e.getSource()==eight){
-            expression.setText(Expression+"8");
+             String Sign=sign.getText();
+            String ADD=" + ";
+            String subtract=" - ";
+            String DIV=" / ";
+            String MUL=" x ";
+
+            if(Sign.equals(ADD)|| Sign.equals(MUL)|| Sign.equals(DIV) || Sign.equals(subtract)){
+                Number_2.setText(Number2+"8");
+            }
+            else{
+                Number_1.setText(Number1+"8");
+            }
         }
         if(e.getSource()==nine){
-            expression.setText(Expression+"9");
+            String Sign=sign.getText();
+            String ADD=" + ";
+            String subtract=" - ";
+            String DIV=" / ";
+            String MUL=" x ";
+
+            if(Sign.equals(ADD)|| Sign.equals(MUL)|| Sign.equals(DIV) || Sign.equals(subtract)){
+                Number_2.setText(Number2+"9");
+            }
+            else{
+                Number_1.setText(Number1+"9");
+            }
         }
         if(e.getSource()==zero){
-            expression.setText(Expression+"0");
+            String Sign=sign.getText();
+            String ADD=" + ";
+            String subtract=" - ";
+            String DIV=" / ";
+            String MUL=" x ";
+
+            if(Sign.equals(ADD)|| Sign.equals(MUL)|| Sign.equals(DIV) || Sign.equals(subtract)){
+                Number_2.setText(Number2+"0");
+            }
+            else{
+                Number_1.setText(Number1+"0");
+            }
         }
         if(e.getSource()==zero_zero){
-            expression.setText(Expression+"00");
+            String Sign=sign.getText();
+            String ADD=" + ";
+            String subtract=" - ";
+            String DIV=" / ";
+            String MUL=" x ";
+
+            if(Sign.equals(ADD)|| Sign.equals(MUL)|| Sign.equals(DIV) || Sign.equals(subtract)){
+                Number_2.setText(Number2+"00");
+            }
+            else{
+                Number_1.setText(Number1+"00");
+            }
         }
         if(e.getSource()==point){
-            expression.setText(Expression+".");
+            String Sign=sign.getText();
+            String ADD=" + ";
+            String subtract=" - ";
+            String DIV=" / ";
+            String MUL=" x ";
+
+            if(Sign.equals(ADD)|| Sign.equals(MUL)|| Sign.equals(DIV) || Sign.equals(subtract)){
+                Number_2.setText(Number2+".");
+            }
+            else{
+                Number_1.setText(Number1+".");
+            }
         }
-        if(e.getSource()==delete){
-            expression.setText(Expression);
-        }
+        // if(e.getSource()==delete){
+        //     expression.setText(Expression);
+        // }
         if(e.getSource()==c){
-            expression.setText("");
+            Number_1.setText("");
+            Number_2.setText("");
         }
+        
         
 
         
