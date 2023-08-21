@@ -1,4 +1,7 @@
 
+# Hi, I'm Mohd Tahzeeb Khan! 👋, Here's my Project on Java with GUI
+
+
 # Standard Calculator
 
 Standard Calculator is a type of Calculator which can perform Basic Arthmetic Operations. This Project content the Calculator which can perform Arthmetic operation such as Addition, Substraction, Multiplication, Division, and additionally Percentage of Nos. 
@@ -8,9 +11,11 @@ This Project is totally Developed in Java Programming Langauge with Swing for th
 This Project will Help Anyone to understand the concepts and Techniques used. Every Line of the code contents comments which can help you to understand the meaning and use of the every line in the code. 
 
 
-## Authors (Developed by)
+## Tech Stack
 
-- [@Mohd Tahzeeb Khan](https://www.github.com/Tahzeeb-web-py)
+**Frontend(GUI):** Swing
+
+**Backend:** Core Java
 
 
 ## Badges
@@ -24,3 +29,38 @@ Add badges from somewhere like: [shields.io](https://shields.io/)
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
+
+
+## Lessons Learned
+
+While Developing this project one can understand the working of Swing and nested if-else conditions. This project consist of nested if-else condition. As a Topic suggested for this project it has a ability to calculate 2 Numbers at a time. This logic behind the arthmethic operation is developed from scratch(from begining), and easy to understand.
+1. Nested If-else
+2. Swing for GUI 
+3. ActionHandling 
+4. EventHandling
+5. little-bit concept of Classes and Object.
+
+## Execution of Project
+
+
+Copy command into your Command Propmt(CMD)
+```bash
+ git clone https://github.com/Tahzeeb-web-py/Calculator.git
+```
+The Above command will clone the project from remote Directory to the local Directory.
+
+Then, open the Directory to any code editor and paste below command.
+```bash
+ java Calci
+```
+That's all to Execute this project
+## Authors (Developed by)
+
+- [@Mohd Tahzeeb Khan](https://www.github.com/Tahzeeb-web-py)
+
+## 🛠 My Skills
+HTML, CSS, Javascripts(Basic)....
+
+Python Programming, Django Framework, Flask Framework, Tkinter...
+
+Java Programming, Swing.
