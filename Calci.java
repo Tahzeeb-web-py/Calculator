@@ -4,8 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-
 import javax.swing.*;
 public class Calci extends JFrame implements ActionListener
 {   
@@ -53,6 +51,9 @@ public class Calci extends JFrame implements ActionListener
         result=new JTextField();//Creating the instance of JTextField
         result.setBounds(10, 150, 350, 50);//Alignment setting
         result.setHorizontalAlignment(SwingConstants.RIGHT);//Arranging the Cursor on the righthand size of the TextField 
+        Font originalFont4=sign.getFont();//Getting the size of existing font in JTextField
+        Font newFont4=originalFont4.deriveFont(originalFont4.getSize()+15.0f);//Increasing the font size by 10pixels.
+        result.setFont(newFont4);//Setting new Font size to the instance
         result.setFocusable(false);
 
         //-------------------------------------------------------------------------------------------------------------------------------------------
@@ -199,7 +200,6 @@ public class Calci extends JFrame implements ActionListener
     public void actionPerformed(ActionEvent e){
         String Number1 = Number_1.getText();
         String Number2 = Number_2.getText();
-        String Result=result.getText();
         if(e.getSource()==Exit){
             dispose();
         }
@@ -220,12 +220,75 @@ public class Calci extends JFrame implements ActionListener
            
         }
         if(e.getSource()==percent){
-            sign.setText("%");
+            if(sign.getText().equals(" + ")){
+                float a=Float.parseFloat(Number1);
+                float b=Float.parseFloat(Number2);
+                float divisionno=a/100;
+                float mulno=divisionno*b;
+                float answer=a+mulno;
+                String StringAnswer=Float.toString(answer);
+                result.setText(StringAnswer);
+            }
+            if(sign.getText().equals("- ")){
+                float a=Float.parseFloat(Number1);
+                float b=Float.parseFloat(Number2);
+                float divisionno=a/100;
+                float mulno=divisionno*b;
+                float answer=a-mulno;
+                String StringAnswer=Float.toString(answer);
+                result.setText(StringAnswer);
+            }
+            if(sign.getText().equals(" x ")){
+                float a=Float.parseFloat(Number1);
+                float b=Float.parseFloat(Number2);
+                float divisionno=a/100;
+                float mulno=divisionno*b;
+                float answer=mulno;
+                String StringAnswer=Float.toString(answer);
+                result.setText(StringAnswer);
+            }
+            if(sign.getText().equals("/ ")){
+                float a=Float.parseFloat(Number1);
+                float b=Float.parseFloat(Number2);
+                float divisionno=a/b;
+                float mulno=divisionno*100;
+                float answer=mulno;
+                String StringAnswer=Float.toString(answer);
+                result.setText(StringAnswer +"%");
+            }
+            
 
         }
-        // if(e.getSource()==equal){
-        //     String getExpression=expression.getText();
-        // }
+        if(e.getSource()==equal){
+            if(sign.getText().equals(" + ")){
+                float a=Float.parseFloat(Number1);
+                float b=Float.parseFloat(Number2);
+                float answer=a+b;
+                String StringAnswer=Float.toString(answer);
+                result.setText(StringAnswer);
+            }
+            if(sign.getText().equals("- ")){
+                float a=Float.parseFloat(Number1);
+                float b=Float.parseFloat(Number2);
+                float answer=a-b;
+                String StringAnswer=Float.toString(answer);
+                result.setText(StringAnswer);
+            }
+            if(sign.getText().equals(" x ")){
+                float a=Float.parseFloat(Number1);
+                float b=Float.parseFloat(Number2);
+                float answer=a*b;
+                String StringAnswer=Float.toString(answer);
+                result.setText(StringAnswer);
+            }
+            if(sign.getText().equals("/ ")){
+                float a=Float.parseFloat(Number1);
+                float b=Float.parseFloat(Number2);
+                float answer=a/b;
+                String StringAnswer=Float.toString(answer);
+                result.setText(StringAnswer);
+            }
+        }
         if(e.getSource()==one){
             String Sign=sign.getText();
             String ADD=" + ";
@@ -412,6 +475,7 @@ public class Calci extends JFrame implements ActionListener
             Number_1.setText("");
             Number_2.setText("");
             sign.setText("");
+            result.setText("");
         }
         
         
